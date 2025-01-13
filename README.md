@@ -1,66 +1,42 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Back-end Laravel Project
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este é o projeto de **back-end** da aplicação, desenvolvido utilizando o **Laravel**. Ele fornece uma API que interage com o banco de dados, permitindo as funcionalidades essenciais para o funcionamento da aplicação.
 
-## About Laravel
+## Tecnologias Usadas
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Laravel**: Framework PHP para o desenvolvimento do back-end.
+- **MySQL**: Banco de dados relacional utilizado para persistência de dados.
+- **Docker**: Contêineres para empacotar a aplicação e suas dependências.
+- **Docker Compose**: Ferramenta para orquestrar múltiplos contêineres Docker.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Funcionalidades
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 1. **Autenticação**
+A aplicação permite o registro e a autenticação de usuários, utilizando o sistema de autenticação nativo do Laravel (Sanctum ou Passport para autenticação via API).
 
-## Learning Laravel
+### 2. **API RESTful**
+A API expõe várias rotas que permitem realizar operações CRUD, além de interações complexas com o banco de dados.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 3. **Interação com o Front-end**
+Este back-end será consumido por um front-end, que envia e recebe dados via requisições HTTP.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+obs: Após configurar o contairner rode: docker exec -it laravel-backend php artisan serve --host=0.0.0.0 --port=8000
 
-## Laravel Sponsors
+## Estrutura do Projeto
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+├── app
+│   ├── Http/Controllers/       # Controladores que lidam com as requisições HTTP
+│   ├── Models/                # Modelos de banco de dados
+│   ├── Providers/             # Fornecedores de serviços do Laravel
+│   └── ...
+├── database
+│   ├── migrations/            # Arquivos de migração para criação do banco de dados
+│   ├── seeds/                 # Seeds para preenchimento de dados iniciais
+├── routes/                     # Arquivos de definição das rotas da API
+│   └── api.php                # Definição das rotas da API
+├── .env                        # Variáveis de ambiente do Laravel
+├── Dockerfile                  # Arquivo Docker para containerizar a aplicação
+├── docker-compose.yml          # Arquivo Docker Compose para orquestrar contêineres
+└── artisan                     # CLI do Laravel para executar comandos no back-end
